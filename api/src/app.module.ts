@@ -5,8 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { UsersModule } from './users/users.module';
 import { Connection } from 'typeorm';
 import { User } from './users/User';
-import { Account } from 'entities/Account';
-import { Type } from 'entities/Type';
+import { Account } from 'src/accounts/Account';
+import { Type } from 'src/types/Type';
+import { AccountsModule } from './accounts/accounts.module';
+import { TypesModule } from './types/types.module';
 
 
 @Module({
@@ -19,7 +21,7 @@ import { Type } from 'entities/Type';
     database: 'postgres',
     entities: [User, Account, Type],
     synchronize: false,
-  }), UsersModule],
+  }), UsersModule, AccountsModule, TypesModule],
   controllers: [AppController],
   providers: [AppService],
 })
