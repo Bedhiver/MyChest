@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Type } from "./Type";
-import { User } from "./User";
+import { User } from "../src/users/User";
 
 @Index("account_pk", ["idAccount"], { unique: true })
 @Entity("account", { schema: "public" })
