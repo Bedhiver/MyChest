@@ -6,8 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Type } from "./Type";
-import { User } from "./User";
+import { Type } from "../types/Type";
+import { User } from "../users/User";
 
 @Index("account_pk", ["idAccount"], { unique: true })
 @Entity("account", { schema: "public" })

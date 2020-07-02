@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Account } from "./Account";
+import { Account } from "../accounts/Account";
 
 @Index("type_pk", ["idType"], { unique: true })
 @Entity("type", { schema: "public" })
