@@ -24,24 +24,26 @@
       <v-spacer></v-spacer>
 
       <div>
-          <router-link to="/" style="color: white">Home</router-link> |
-          <router-link to="/register" style="color: white">Login</router-link>
+        <router-link to="/" class="white--text">Home</router-link> |
+        <router-link to="/register" class="white--text">Login</router-link>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
 
-    <router-view style="margin-top: 70px"></router-view>
-
-
+    <v-main>
+      <router-view />
+    </v-main>
   </v-app>
 </template>
 
-<script>
-
-</script>
+<script></script>
