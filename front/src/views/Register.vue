@@ -7,11 +7,7 @@
         <v-col cols="12" sm="6">
           <v-card class="pa-4 grey lighten-3" tile>
             <v-form ref="form" v-model="valid">
-              <v-text-field
-                :rules="emailRules"
-                label="Adresse email"
-                required
-              ></v-text-field>
+              <v-text-field v-model="emailIn" :rules="emailRules" label="Adresse email" required></v-text-field>
 
               <v-text-field
                 v-model="passwordIn"
@@ -30,24 +26,15 @@
               ></v-text-field>
 
               <v-text-field
+                v-model="questionIn"
                 :rules="questionRules"
                 label="Tapez votre question secrète"
                 required
               ></v-text-field>
 
-              <v-text-field
-                :rules="answerRules"
-                label="Réponse"
-                required
-              ></v-text-field>
+              <v-text-field v-model="answerIn" :rules="answerRules" label="Réponse" required></v-text-field>
             </v-form>
-            <v-btn
-              :disabled="!valid"
-              color="success"
-              class="mr-4 mt-4"
-              @click="validate"
-              >Valider</v-btn
-            >
+            <v-btn :disabled="!valid" color="success" class="mr-4 mt-4" @click="validate">Valider</v-btn>
           </v-card>
         </v-col>
       </v-row>
@@ -79,8 +66,35 @@
 //   return fooBool;
 // }
 
+// TODO: Change rules to show different errors !
+
+import axios from "axios";
+
+let userToSave = {
+  emailUser: "",
+  passwordUser: "",
+  questionUser: "",
+  answerUser: ""
+};
+
+function saveUser(userToSave) {
+  axios
+    .post(url, userToSave)
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+import { url } from "../config-database-connect";
+
 export default {
   data: () => ({
+    emailIn: "",
+    questionIn: "",
+    answerIn: "",
     passwordIn: "",
     passwordRepeatIn: "",
     valid: true,
@@ -107,8 +121,24 @@ export default {
         // booltest = false;
         this.passwordIn = "";
         this.passwordRepeatIn = "";
+      } else {
+        userToSave.emailUser = this.emailIn;
+        userToSave.passwordUser = this.passwordIn;
+        userToSave.questionUser = this.questionIn;
+        userToSave.answerUser = this.answerIn;
+
+        console.log(`user to save : ${userToSave.emailUser}`);
+
+        saveUser(userToSave);
+
+        console.log(url);
       }
-      console.log("Validé !!!");
+      // else {
+      //   user;
+
+      //   console.log("Validé !!!");
+      //   saveUser();
+      // }
     }
   }
 };
