@@ -7,6 +7,7 @@
 ------------------------------------------------------------
 -- Table: user
 ------------------------------------------------------------
+
 CREATE TABLE public.user(
 	id_user         SERIAL NOT NULL ,
 	email_user      VARCHAR (50) NOT NULL ,
