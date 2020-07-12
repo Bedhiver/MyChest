@@ -132,6 +132,7 @@ export default {
         saveUser(userToSave);
 
         console.log(url);
+        this.$router.push('/login');
       }
       // else {
       //   user;
