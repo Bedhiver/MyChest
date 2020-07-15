@@ -26,6 +26,17 @@
     <v-main>
       <router-view />
     </v-main>
+
+    <v-footer>
+      <span class="text-sm-body-2"
+        >&copy; {{ new Date().getFullYear() }} {{ application.name }}. All
+        rights reserved.</span
+      >
+      <v-spacer></v-spacer>
+      <span class="text-sm-body-2"
+        >Application version: {{ application.version }}</span
+      >
+    </v-footer>
   </v-app>
 </template>
 
@@ -34,7 +45,8 @@ export default {
   name: "App",
   data: () => ({
     application: {
-      name: "MyChest"
+      name: "MyChest",
+      version: "1.0"
     },
     pages: [
       {
