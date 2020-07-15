@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <h1 class="text-center mt-4">Register page</h1>
+    <h1 class="text-center mt-4">Inscription</h1>
 
     <v-row align="center" justify="center">
       <v-col cols="12" sm="7">
