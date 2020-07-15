@@ -11,10 +11,12 @@ import { TypesModule } from './types/types.module';
 import { AuthModule } from './auth/auth.module';
 
 
+const typeOrmHost = process.env.TYPEORM_HOST || 'localhost'
+
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'postgres',
-    host: 'localhost',
+    host: typeOrmHost,
     port: 5432,
     username: 'postgres',
     password: 'password',
@@ -25,4 +27,4 @@ import { AuthModule } from './auth/auth.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
