@@ -15,7 +15,12 @@
                 required
               ></v-text-field>
             </v-form>
-            <v-btn :disabled="!valid" color="success" class="mr-4 mt-4" @click="validate">Connexion</v-btn>
+            <v-btn
+              :disabled="!valid"
+              color="success"
+              class="mr-4 mt-4"
+              @click="validate"
+            >Se connecter</v-btn>
           </v-card>
         </v-col>
       </v-row>
@@ -30,19 +35,16 @@ export default {
     passwordIn: "",
     valid: true,
     emailRules: [
-    v => !!v || "E-mail requis !",
-    v => /.+@.+\..+/.test(v) || "L'adresse e-mail doit être valide !"
+      v => !!v || "E-mail requis !",
+      v => /.+@.+\..+/.test(v) || "L'adresse e-mail doit être valide !"
     ],
-    passwordRules: [
-        v => !!v || "Ne doit pas être vide",
-    ]
+    passwordRules: [v => !!v || "Ne doit pas être vide"]
   }),
 
-methods: {
+  methods: {
     validate() {
-        this.$refs.form.validate();
+      this.$refs.form.validate();
     }
-}
-
+  }
 };
 </script>
