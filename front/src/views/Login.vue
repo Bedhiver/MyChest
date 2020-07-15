@@ -1,9 +1,9 @@
 <template>
   <div class="login">
     <h1 class="text-center mt-4">Login page</h1>
-    <v-container fuild>
+
       <v-row align="center" justify="center">
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="7">
           <v-card class="pa-4 grey lighten-3" tile>
             <v-form ref="form" v-model="valid">
               <v-text-field v-model="emailIn" :rules="emailRules" label="Adresse email" required></v-text-field>
@@ -24,7 +24,6 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
   </div>
 </template>
 
