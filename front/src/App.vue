@@ -24,9 +24,12 @@
       <v-spacer></v-spacer>
 
       <div>
-        <router-link to="/" class="white--text">Home</router-link> |
-        <router-link to="/register" class="white--text">Register</router-link> |
-        <router-link to="/login" class="white--text">Login</router-link>
+        <router-link to="/" class="white--text">Accueil</router-link> |
+        <router-link to="/register" class="white--text"
+          >Inscription</router-link
+        >
+        |
+        <router-link to="/login" class="white--text">Connexion</router-link>
       </div>
 
       <v-spacer></v-spacer>
