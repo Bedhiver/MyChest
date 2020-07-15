@@ -34,7 +34,12 @@
 
               <v-text-field v-model="answerIn" :rules="answerRules" label="Réponse" required></v-text-field>
             </v-form>
-            <v-btn :disabled="!valid" color="success" class="mr-4 mt-4" @click="validate">Valider</v-btn>
+            <v-btn
+              :disabled="!valid"
+              color="success"
+              class="mr-4 mt-4"
+              @click="validate"
+            >S'enregistrer</v-btn>
           </v-card>
         </v-col>
       </v-row>
@@ -132,6 +137,7 @@ export default {
         saveUser(userToSave);
 
         console.log(url);
+        this.$router.push("/login");
       }
       // else {
       //   user;
