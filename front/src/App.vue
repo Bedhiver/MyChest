@@ -2,44 +2,23 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <span class="application-title">
+          {{ application.name }}
+        </span>
       </div>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
-      <div>
-        <router-link to="/" class="white--text">Accueil</router-link> |
-        <router-link to="/register" class="white--text"
-          >Inscription</router-link
-        >
-        |
-        <router-link to="/login" class="white--text">Connexion</router-link>
+      <div v-for="page in pages" :key="page.name">
+        <v-btn class="ma-1" small outlined :to="page.link">{{
+          page.name
+        }}</v-btn>
       </div>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-btn href="https://github.com/Bedhiver/MyChest" target="_blank" text>
+        <span class="mr-2">GitHub repository</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
@@ -47,7 +26,52 @@
     <v-main>
       <router-view />
     </v-main>
+
+    <v-footer>
+      <span class="text-sm-body-2"
+        >&copy; {{ new Date().getFullYear() }} {{ application.name }}. All
+        rights reserved.</span
+      >
+      <v-spacer></v-spacer>
+      <span class="text-sm-body-2"
+        >Application version: {{ application.version }}</span
+      >
+    </v-footer>
   </v-app>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "App",
+  data: () => ({
+    application: {
+      name: "MyChest",
+      version: "1.0"
+    },
+    pages: [
+      {
+        name: "Accueil",
+        link: "/"
+      },
+      {
+        name: "Inscription",
+        link: "/register"
+      },
+      {
+        name: "Connexion",
+        link: "/login"
+      }
+    ],
+    icons: ["mdi-home", "mdi-email", "mdi-calendar", "mdi-delete"]
+  })
+};
+</script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+
+.application-title {
+  font-family: "Black Ops One", cursive;
+  font-size: 40px;
+}
+</style>
