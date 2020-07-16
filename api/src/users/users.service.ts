@@ -15,7 +15,10 @@ export class UsersService {
     }
 
     findOne(userEmail: string): Promise<User> {
-        return this.usersRepository.findOne(userEmail);
+        // return this.usersRepository.findOne(userEmail);
+        return this.usersRepository.findOne({
+            where: {emailUser: userEmail}
+        });
     }
 
     async remove(id: string): Promise<void> {

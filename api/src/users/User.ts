@@ -13,7 +13,7 @@ export class User {
   @PrimaryGeneratedColumn({ type: "integer", name: "id_user" })
   idUser: number;
 
-  @Column("character varying", { name: "email_user", length: 50 })
+  @Column("character varying", { unique: true, name: "email_user", length: 50 })
   emailUser: string;
 
   @Column("character varying", { name: "password_user", length: 50 })
